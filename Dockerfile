@@ -3,8 +3,8 @@ FROM ubuntu:16.04
 RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 
 RUN apt-get clean \
-    && apt-get -y update \
-    && apt-get install -y --no-install-recommends \
+    && apt-get -y -qq update \
+    && apt-get install -y -qq --no-install-recommends \
     locales \
     python-software-properties \
     software-properties-common \
@@ -17,8 +17,8 @@ ENV LC_ALL en_US.UTF-8
 
 RUN add-apt-repository ppa:ondrej/php
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN apt-get update -y -qq \
+    && apt-get install -y -qq --no-install-recommends \
       tzdata \
       apache2 \
       php7.1 \
@@ -49,4 +49,5 @@ COPY . /var/www/html
 
 EXPOSE 80 443
 
+CMD ["echo 'ServerName localhost' >> /etc/apache2/apache2.conf"]
 CMD ["/usr/local/bin/run" ]
