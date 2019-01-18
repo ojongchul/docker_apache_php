@@ -4,7 +4,8 @@
 
 # API 설명
 
-모든 입력 항목에 대해 비정상적인 접근은 없는 private api라고 가정함.
+* 모든 입력 항목은 비정상적인 접근이 없는 private api라고 가정함.
+* 샘플 url은 toast cloud instance에서 docker로 구동 중임.
 
 ## 회원 데이터 생성(회원 가입) API
 : 회원 정보를 입력받아 DB에 추가
@@ -48,7 +49,7 @@ sample url : http://133.186.247.134/index.php/User/signUp
 	* msg : 성공 or 오류 메시지
 
 ## 회원 데이터 삭제 API
-: 계정 정보를 삭제 테이블로 이동 후 삭제
+: 계정 정보를 삭제 테이블로 복제 후 계정 테이블에서 삭제
  sample url : http://133.186.247.134/index.php/User/removeAccount
 * method : POST
 * parameter 
